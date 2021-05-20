@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "CrearPokemonr";
+}
+
+<style>
+    strong {
+    color:red;
+    }
+</style>
+
+<h1>CrearPokemon</h1>
+
+<form action="/Pokemon/CrearPokemon" method="post" enctype="multipart/form-data">
+    Nombre
+    <input class="form-control" name="Nombre" value="@Model.Nombre" />
+    <strong>@Html.ValidationMessage("Nombre")</strong>
+    <strong>@Html.ValidationMessage("Nombre1")<br/></strong>
+
+    <label>Tipo</label>
+    <select name="Tipo" class="form-control">
+        <option value=""> --Seleccione--</option>
+        @foreach (var pokemoncito in ViewBag.tipos)
+        {
+            <option value="@pokemoncito"> @pokemoncito</option>
+        }
+    </select>
+    <strong>@Html.ValidationMessage("Tipo")<br /></strong>
+    <label>Imagen</label>
+    <input class="form-control" type="file" name="photo" />
+    <strong>@Html.ValidationMessage("Image")<br /></strong>
+    <br />
+    <button class="btn btn-success">Crear</button>
+</form>

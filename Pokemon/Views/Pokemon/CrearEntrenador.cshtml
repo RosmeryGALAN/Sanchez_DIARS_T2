@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "CrearEntrenador";
+}
+
+<h1>CrearEntrenador</h1>
+
+<form action="/Pokemon/CrearEntrenador" method="post">
+    Nombre
+    <input name="Nombre" value="@Model.Nombre" />
+    <strong>@Html.ValidationMessage("Nombre")</strong>
+    Ciudad
+    <select name="Ciudad">
+        <option value=""> --Seleccione--</option>
+        <option value="Lima"> Lima</option>
+        <option value="Cajamarca"> Cajamarca</option>
+        <option value="Piura"> Piura</option>
+    </select>
+    <strong>@Html.ValidationMessage("Ciudad")</strong>
+    <button>Crear</button>
+</form>
+

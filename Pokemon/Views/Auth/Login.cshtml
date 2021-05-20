@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form action="/Auth/Login" method="post">
+    <label>UserName</label>
+    <input class="form-control" name="UserName" value="" />
+    <label>Password</label>
+    <input class="form-control" name="Pass" type="password" value="" />
+
+    <button class="btn btn-primary">Login</button>
+</form>

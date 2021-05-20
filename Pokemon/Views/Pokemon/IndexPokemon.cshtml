@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "IndexPokemon";
+}
+
+<script>
+    $(document).ready(function (e) {
+        $.get("/Pokemon/Buscar?query=" + $("#query").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+  
+</script>
+
+<h1>Lista de Pokemones</h1>
+
+<form action="~/Pokemon/IndexPokemon">
+    <input type="text" id="query"  name="query" class="form-control sf-input" autocomplete="off" value="@ViewBag.datos" placeholder="Buscar" />
+    <button href="#" id="buscar" class="btn btn-primary">Buscar</button>
+</form>
+<br />
+
+<table class="table  table-hover">
+    <thead>
+        <tr>
+            <td>Id</td> 
+            <td>Nombre</td>
+            <td>Tipo</td>
+            <td>Imagen</td>
+            <td>Buttons</td>
+        </tr>
+    </thead>
+
+    <tbody id="tbody">
+
+        
+    </tbody>
+</table>
+
+<script>
+    $("#buscar").click(function (e) {
+        $.get("/Pokemon/Buscar?query=" + $("#query").val(), function (respuesta) {
+            $("#tbody").html(respuesta);
+        });
+        e.preventDefault();
+    });
+    $(document).ready(function () {
+        $('.form-control').click(function () {
+            $('input[type="text"]').val('');
+        });
+    });
+</script>

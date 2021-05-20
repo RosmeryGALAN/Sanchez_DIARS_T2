@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>
+    Mis Pokemons
+</h1>
+
+@*@foreach (var item in Model){
+    <ul>
+        <li>ID: @item.Id</li>
+
+        <li>Nombre: @item.Nombre <a class="btn btn-danger" href="">Liberar</a></li>
+    </ul>
+    }*@
+
+@foreach (var allpokemons in ViewBag.pokemones)
+{
+
+    @foreach (var misPokemones in Model)
+    {
+        if (allpokemons.Id == misPokemones.IdPokemon)
+        {
+            
+            <tr>
+                <td>@allpokemons.Id</td>
+                <td>@allpokemons.Nombre</td>
+                <td>@allpokemons.Tipo</td>
+                <td>
+                    <img src="~/Images/@allpokemons.Image" width="50" />
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="/Pokemon/EliminarPokemon?IdPokemon=@misPokemones.IdPokemon">Liberar</a>
+                </td>
+            </tr>
+        }
+
+    }
+}
+<ul>
+    @*@foreach (var todosLospokemones in ViewBag.pokemones)
+        {
+            if (misPokemones.Id == todosLospokemones.Id)
+            {
+                <li>@misPokemones.Nombre <a href="/Pokemon/Eliminar?IdPokemon=@misPokemones.Id">Eliminar</a> </li>
+            }
+        }*@
+
+</ul>
+
+
+<a class="btn btn-outline-primary" href="/Pokemon/IndexPokemon">Ver todos los Pokemons</a>

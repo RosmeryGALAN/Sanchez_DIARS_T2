@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Capturas";
+}
+
+<h1>Lista de capturas</h1>
+
+@foreach (var item in Model)
+{
+    <ul>
+        <li>@item.Nombre <a href="/Pokemon/Eliminar?id=@item.Id">Eliminar</a> </li>
+    </ul>
+}
+
+
+@foreach (var misPokemones in Model)
+{
+<ul>
+    @foreach (var todosLospokemones in ViewBag.pokemones)
+    {
+        if (misPokemones.Id == todosLospokemones.Id)
+        {
+            <li>@misPokemones.Nombre <a href="/Pokemon/Eliminar?IdPokemon=@misPokemones.Id">Eliminar</a> </li>
+        }
+    }
+   
+</ul>
+}
